@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div>
-      <main>
+      <main className="">
         <h1 className="text-2xl font-bold">メインコンテンツ</h1>
       </main>
     </div>

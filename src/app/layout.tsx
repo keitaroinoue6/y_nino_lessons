@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./global.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,12 +15,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header>
-          <h1>ヘッダー</h1>
+      <body className="flex flex-col min-h-screen">
+        <header className="h-16 border-b gap-4 px-6 flex items-center border-gray-300">
+          <Button asChild variant="ghost" className="font-bold text-xl">
+            <Link href="/">
+              ヘッダー
+            </Link>
+          </Button>
+          <Button asChild variant="ghost" className="font-bold text-xl">
+            <Link href="/about">
+              このサービスについて
+            </Link>
+          </Button>
         </header>
         {children}
-        <footer>
+        <footer className="h-16 px-6 flex items-center sticky top-full border-t border-gray-300">
           <h1>フッター</h1>
         </footer>
       </body>
